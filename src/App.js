@@ -7,6 +7,7 @@ import AddTask from './AddTask';
 import NewTaskInput from './NewTaskInput';
 import OutstandingTaskTitle from './OutstandingTaskTitle';
 import OutstandingTaskCount from './OutstandingTaskCount';
+import OutstandingTask from './OutstandingTask';
 
 
 class App extends React.Component {
@@ -33,6 +34,11 @@ class App extends React.Component {
         <div className="row" style={{backgroundColor: "yellow"}}>
           <OutstandingTaskCount />
         </div>
+
+        <div className="row" style={{backgroundColor: "plum"}}>
+          <OutstandingTask />
+        </div>
+
       </div>
     );
   }

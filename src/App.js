@@ -4,22 +4,29 @@ import React from 'react';
 
 import Header from './Header';
 import AddTask from './AddTask';
+import NewTaskInput from './NewTaskInput';
+import OutstandingTaskTitle from './OutstandingTaskTitle'
 
 class App extends React.Component {
-    render() {
-      return (
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <Header />
-            </div>
-            <div className="col-12">
-              <AddTask />
-            </div>
+  render() {
+    return (
+      <div className="container">
+        <div className="row" style={{backgroundColor: "pink"}}>
+          <div className="col-12">
+            <Header />
           </div>
         </div>
-      );
-    }
+        <div className="row" style={{ backgroundColor: "cornflowerblue" }}>
+          <div className="col-12">
+            <NewTaskInput />
+          </div>
+        </div>
+        <div className="row" style={{backgroundColor: "teal" }}>
+          <OutstandingTaskTitle />
+        </div>
+      </div>
+    );
+  }
 }
 
 // // NOTE: This code is the default React App.js code. It is a Functional (Stateless) Component.

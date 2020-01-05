@@ -15,13 +15,8 @@ import CompletedTask from './CompletedTask';
 class App extends React.Component {
   render() {
     return (
-      <body id="mainBody">
-
-          <div className="row">
-            <div className="col-12">
-              <Header />
-            </div>
-          </div>
+      <body>
+        <Header />
 
         <div className="container">
           <div className="row">
@@ -31,27 +26,40 @@ class App extends React.Component {
           </div>
 
           <div className="row">
-            <OutstandingTaskTitle />
+            <div className="col-12">
+              <OutstandingTaskTitle />
+            </div>
           </div>
 
           <div className="row">
-            <OutstandingTaskCount />
+            <div className="col-12">
+              <OutstandingTaskCount />
+            </div>
           </div>
 
           <div className="row">
-            <OutstandingTask />
+            <div className="col-12">
+              <OutstandingTask />
+            </div>
+          </div>
+
+
+          <div className="row">
+            <div className="col-12">
+              <CompletedTaskTitle />
+            </div>
           </div>
 
           <div className="row">
-            <CompletedTaskTitle />
+            <div className="col-12">
+              <CompletedTaskCount />
+            </div>
           </div>
 
           <div className="row">
-            <CompletedTaskCount />
-          </div>
-
-          <div className="row">
-            <CompletedTask />
+            <div className="col-12">
+              <CompletedTask />
+            </div>
           </div>
 
         </div>

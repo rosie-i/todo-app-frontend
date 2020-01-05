@@ -9,11 +9,13 @@ button {
 
 }
 
-#mainBody {
+
+body {
   background-color: #BEA1E0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
 }
+
 
 .pageHeader {
   background-color: #3d3d3d;
@@ -31,50 +33,45 @@ button {
   padding: 0.3em;
 }
 
+
 h2 {
-  font-family: 'Montserrat', Verdana, Geneva, Tahoma, sans-serif;
-  text-transform: uppercase;  
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
+    font-family: 'Montserrat', Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;  
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
 }
 
 .newTask {
   padding: 0.4em;
 }
 
+
 .newTaskTextbox {
   text-align: right;
 }
 
-/* .tasksToGo {
-
-} */
-
-/* .outstandingTasks {
-  text-align: center;
-} */
 
 .gridContainerOutstanding {
-    /* display: grid;
-    grid-template-columns: 1fr auto auto;
-    margin-left: 20%;
-    margin-right: 20%; */
-    background-color: #90cdc2;
-    /* border: 4px solid white; */
+  background-color: #90cdc2;
 }
 
 .gridItemOutstanding {
-    border: 1px solid white;
-    padding: 2px 10px 2px 10px;
-    text-align: center;
-  }
+  border: 1px solid white;
+  padding: 2px 10px 2px 10px;
+  text-align: center;
+}
+
+/* Used on week-002 repo, doesn't seem to be necessary now we've moved to React
 
 .gridItemOutstandingButtons {
-    border: 1px solid white;
-    padding: 0px;
-    text-align: center;
-  }
+  border: 1px solid white;
+  padding: 0px;
+  text-align: center;
+}
+
+*/
+
 
 
 .completedTasks {
@@ -82,13 +79,9 @@ h2 {
 }
 
 .gridContainerCompleted {
-    /* display: grid;
-    grid-template-columns: 1fr 145px;
-    margin-left: 20%;
-    margin-right: 20%;*/
-    background-color: #90cdc2;
-    /* border: 4px solid white; */
+  background-color: #90cdc2;
 }
+
 
 .gridItemCompleted {
     border: 1px solid white;

@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat|Pacifico&display=swap');
 
+span.line {
+  display: inline-block;
+}
 
 button {
     color: white;

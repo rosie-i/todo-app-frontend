@@ -3,7 +3,6 @@ import React from 'react';
 // import './App.css';
 
 import Header from './Header';
-import AddTask from './AddTask';
 import NewTaskInput from './NewTaskInput';
 import OutstandingTaskTitle from './OutstandingTaskTitle';
 import OutstandingTaskCount from './OutstandingTaskCount';
@@ -16,45 +15,47 @@ import CompletedTask from './CompletedTask';
 class App extends React.Component {
   render() {
     return (
-      <div className="container">
+      <body id="mainBody">
 
-        <div className="row" style={{backgroundColor: "pink"}}>
-          <div className="col-12">
-            <Header />
+          <div className="row">
+            <div className="col-12">
+              <Header />
+            </div>
           </div>
-        </div>
 
-        <div className="row" style={{ backgroundColor: "cornflowerblue" }}>
-          <div className="col-12">
-            <NewTaskInput />
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <NewTaskInput />
+            </div>
           </div>
-        </div>
 
-        <div className="row" style={{backgroundColor: "teal" }}>
-          <OutstandingTaskTitle />
-        </div>
+          <div className="row">
+            <OutstandingTaskTitle />
+          </div>
 
-        <div className="row" style={{backgroundColor: "yellow"}}>
-          <OutstandingTaskCount />
-        </div>
+          <div className="row">
+            <OutstandingTaskCount />
+          </div>
 
-        <div className="row" style={{backgroundColor: "plum"}}>
-          <OutstandingTask />
-        </div>
+          <div className="row">
+            <OutstandingTask />
+          </div>
 
-        <div className="row" style={{backgroundColor: "darkorchid"}}>
-          <CompletedTaskTitle />
-        </div>
+          <div className="row">
+            <CompletedTaskTitle />
+          </div>
 
-        <div className="row" style={{backgroundColor: "khaki"}}>
-          <CompletedTaskCount />
-        </div>
+          <div className="row">
+            <CompletedTaskCount />
+          </div>
 
-        <div className="row" style={{backgroundColor: "deeppink"}}>
-          <CompletedTask />
-        </div>
+          <div className="row">
+            <CompletedTask />
+          </div>
 
-      </div>
+        </div>
+      </body>  
     );
   }
 }

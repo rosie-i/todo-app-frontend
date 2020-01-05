@@ -5,24 +5,33 @@ import React from 'react';
 import Header from './Header';
 import AddTask from './AddTask';
 import NewTaskInput from './NewTaskInput';
-import OutstandingTaskTitle from './OutstandingTaskTitle'
+import OutstandingTaskTitle from './OutstandingTaskTitle';
+import OutstandingTaskCount from './OutstandingTaskCount';
+
 
 class App extends React.Component {
   render() {
     return (
       <div className="container">
+
         <div className="row" style={{backgroundColor: "pink"}}>
           <div className="col-12">
             <Header />
           </div>
         </div>
+
         <div className="row" style={{ backgroundColor: "cornflowerblue" }}>
           <div className="col-12">
             <NewTaskInput />
           </div>
         </div>
+
         <div className="row" style={{backgroundColor: "teal" }}>
           <OutstandingTaskTitle />
+        </div>
+
+        <div className="row" style={{backgroundColor: "yellow"}}>
+          <OutstandingTaskCount />
         </div>
       </div>
     );

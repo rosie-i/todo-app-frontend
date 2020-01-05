@@ -10,7 +10,7 @@ import OutstandingTaskCount from './OutstandingTaskCount';
 import OutstandingTask from './OutstandingTask';
 import CompletedTaskTitle from './CompletedTaskTitle';
 import CompletedTaskCount from './CompletedTaskCount';
-
+import CompletedTask from './CompletedTask';
 
 
 class App extends React.Component {
@@ -48,6 +48,10 @@ class App extends React.Component {
 
         <div className="row" style={{backgroundColor: "khaki"}}>
           <CompletedTaskCount />
+        </div>
+
+        <div className="row" style={{backgroundColor: "deeppink"}}>
+          <CompletedTask />
         </div>
 
       </div>

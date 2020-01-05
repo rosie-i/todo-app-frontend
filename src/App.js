@@ -3,18 +3,26 @@ import React from 'react';
 // import './App.css';
 
 import Header from './Header';
+import AddTask from './AddTask';
 
 class App extends React.Component {
     render() {
       return (
-        <div>
-          <Header />
-          <p>Hello woorrrld</p>
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <Header />
+            </div>
+            <div className="col-12">
+              <AddTask />
+            </div>
+          </div>
         </div>
       );
     }
 }
 
+// // NOTE: This code is the default React App.js code. It is a Functional (Stateless) Component.
 // function App() {
 //   return (
 //     <div className="App">
@@ -22,7 +30,6 @@ class App extends React.Component {
 //         <img src={logo} className="App-logo" alt="logo" />
 //         <p>
 //           Edit <code>src/App.js</code> and save to reload.
-//           Hi Rosie roooo!
 //         </p>
 //         <a
 //           className="App-link"

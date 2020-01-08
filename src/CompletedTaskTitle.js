@@ -3,7 +3,7 @@ import React from 'react';
 class CompletedTaskTitle extends React.Component {
     render() {
         return (
-            <div className="row">
+            <div className="row completedTasks">
                 <h2 className="col-12">Completed Tasks:</h2>
             </div>
         );

@@ -19,48 +19,20 @@ class App extends React.Component {
         <Header />
 
         <div className="container">
-          <div className="row">
-            <div className="col-12">
               <NewTaskInput />
-            </div>
-          </div>
 
-          <div className="row">
-            <div className="col-12">
               <OutstandingTaskTitle />
-            </div>
-          </div>
 
-          <div className="row">
-            <div className="col-12">
               <OutstandingTaskCount />
-            </div>
-          </div>
 
-          <div className="row">
-            <div className="col-12">
               <OutstandingTask />
-            </div>
-          </div>
 
 
-          <div className="row">
-            <div className="col-12">
               <CompletedTaskTitle />
-            </div>
-          </div>
 
-          <div className="row">
-            <div className="col-12">
               <CompletedTaskCount />
-            </div>
-          </div>
 
-          <div className="row">
-            <div className="col-12">
               <CompletedTask />
-            </div>
-          </div>
 
         </div>
       </body>  

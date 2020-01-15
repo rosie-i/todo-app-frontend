@@ -13,6 +13,16 @@ import CompletedTask from './CompletedTask';
 
 
 class App extends React.Component {
+
+  state = {
+    tasks: [
+      { id: 1, description: "Buy milk", completed: false},
+      { id: 2, description: "Hang out laundry", completed: false},
+      { id: 3, description: "Get a corgi", completed: false}
+    ]      
+  }
+  
+
   render() {
     return (
       <body>

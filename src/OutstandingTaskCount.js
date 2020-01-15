@@ -5,7 +5,7 @@ class OutstandingTaskCount extends React.Component {
         return (
             <div className="row">
                 <div className="col-12">
-                    <p className="tasksToGo"><b>2</b> to go!</p>
+                    <p className="tasksToGo"><b>{this.props.outstandingTaskCount}</b> to go!</p>
                 </div>
             </div>
         );

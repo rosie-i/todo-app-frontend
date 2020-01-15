@@ -33,7 +33,7 @@ class App extends React.Component {
 
               <OutstandingTaskTitle />
 
-              <OutstandingTaskCount />
+              <OutstandingTaskCount outstandingTaskCount={this.state.tasks.length} />
 
               <OutstandingTask />
 

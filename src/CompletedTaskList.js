@@ -6,8 +6,6 @@ class CompletedTaskList extends React.Component {
         return (
             <div>
                 <CompletedTask />
-                <CompletedTask />
-                <CompletedTask />
             </div>
         );
     }

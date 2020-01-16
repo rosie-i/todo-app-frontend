@@ -1,6 +1,15 @@
 import React from 'react';
 
 class OutstandingTask extends React.Component {
+    
+    deleteClicked = () => {
+        alert('You clicked delete');
+    }
+
+    doneClicked = () => {
+        alert('You clicked done');
+    }
+    
     render() {
         return (
             <div className="row gridContainerOutstanding">
@@ -13,8 +22,8 @@ class OutstandingTask extends React.Component {
                 </div>
 
                 <div className="col-6 col-md-2 gridItemOutstanding">
-                    <button type="button">&#10004;</button>
-                    <button type="button"><b>&#128465;</b></button>
+                    <button type="button" onClick={this.doneClicked}>&#10004;</button>
+                    <button type="button" onClick={this.deleteClicked}><b>&#128465;</b></button>
                 </div>
             </div>
         );

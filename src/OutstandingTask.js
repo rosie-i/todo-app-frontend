@@ -5,11 +5,11 @@ class OutstandingTask extends React.Component {
         return (
             <div className="row gridContainerOutstanding">
                 <div className="col-12 col-md-8 gridItemOutstanding">
-                    Buy milk
+                    {this.props.item.description}
                 </div>
 
                 <div className="col-6 col-md-2 gridItemOutstanding">
-                    01/12/19
+                {this.props.item.due}
                 </div>
 
                 <div className="col-6 col-md-2 gridItemOutstanding">

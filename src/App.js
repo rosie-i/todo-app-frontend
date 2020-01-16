@@ -6,19 +6,19 @@ import Header from './Header';
 import NewTaskInput from './NewTaskInput';
 import OutstandingTaskTitle from './OutstandingTaskTitle';
 import OutstandingTaskCount from './OutstandingTaskCount';
-import OutstandingTask from './OutstandingTask';
+import OutstandingTaskList from './OutstandingTaskList';
 import CompletedTaskTitle from './CompletedTaskTitle';
 import CompletedTaskCount from './CompletedTaskCount';
-import CompletedTask from './CompletedTask';
+import CompletedTaskList from './CompletedTaskList';
 
 
 class App extends React.Component {
 
   state = {
     tasks: [
-      { id: 1, description: "Buy milk", completed: false},
-      { id: 2, description: "Hang out laundry", completed: false},
-      { id: 3, description: "Get a corgi", completed: false}
+      { id: 1, description: "Buy milk", due: "20/01/2020", completed: false},
+      { id: 2, description: "Hang out laundry", due: "21/01/2020", completed: false},
+      { id: 3, description: "Get a corgi", due: "22/01/2020", completed: false}
     ]      
   }
   
@@ -27,23 +27,14 @@ class App extends React.Component {
     return (
       <body>
         <Header />
-
         <div className="container">
               <NewTaskInput />
-
               <OutstandingTaskTitle />
-
               <OutstandingTaskCount outstandingTaskCount={this.state.tasks.length} />
-
-              <OutstandingTask />
-
-
+              <OutstandingTaskList taskList={this.state.tasks}/>
               <CompletedTaskTitle />
-
               <CompletedTaskCount />
-
-              <CompletedTask />
-
+              <CompletedTaskList />
         </div>
       </body>  
     );

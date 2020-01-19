@@ -3,7 +3,7 @@ import React from 'react';
 class OutstandingTask extends React.Component {
     
     deleteClicked = () => {
-        alert('You clicked delete');
+        this.props.deleteTaskFunc(this.props.item.id)
     }
 
     doneClicked = () => {

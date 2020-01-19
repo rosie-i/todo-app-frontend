@@ -22,6 +22,21 @@ class App extends React.Component {
     ]      
   }
   
+  // filter function could be useful to render a new array based on completed: true or completed: false
+
+
+  deleteTask = (taskID) => {
+    // Tasks will be deleted when this function executes
+        // 1. Get list of tasks from state
+        let tasks = this.state.tasks;
+        // 2. Identify task that matches the given taskID and remove it
+        let updatedTasks = tasks.filter(item => item.id !== taskID);
+        // 3. Update state to reflect deletion with new collection of tasks (i.e. without the one we just deleted)
+        this.setState({
+          tasks: updatedTasks
+        });
+}
+
 
   render() {
     return (
@@ -31,7 +46,7 @@ class App extends React.Component {
               <NewTaskInput />
               <OutstandingTaskTitle />
               <OutstandingTaskCount outstandingTaskCount={this.state.tasks.length} />
-              <OutstandingTaskList taskList={this.state.tasks}/>
+              <OutstandingTaskList taskList={this.state.tasks} deleteTaskFunc={this.deleteTask} />
               <CompletedTaskTitle />
               <CompletedTaskCount />
               <CompletedTaskList />

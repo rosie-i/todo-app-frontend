@@ -35,7 +35,25 @@ class App extends React.Component {
         this.setState({
           tasks: updatedTasks
         });
-}
+  }
+
+  addTask = (newTaskDescription, newTaskDueDate) => {
+    // Task will be added when this function executes
+
+      // 1. Define the task that is being added
+      const taskToAdd = { id: "?", description: newTaskDescription, due: newTaskDueDate, completed: false }
+    
+      // 2. Get current array of tasks from state
+      let tasksToDo = this.state.tasks;
+
+      // 3. Add new task object (taskToAdd) to the array
+      tasksToDo.push(taskToAdd);
+
+      // 4. Update state to reference new array with added task
+      this.setState({
+        tasks: tasksToDo
+      });
+  }
 
 
   render() {
@@ -43,7 +61,7 @@ class App extends React.Component {
       <body>
         <Header />
         <div className="container">
-              <NewTaskInput />
+              <NewTaskInput addTaskFunc={this.addTask} />
               <OutstandingTaskTitle />
               <OutstandingTaskCount outstandingTaskCount={this.state.tasks.length} />
               <OutstandingTaskList taskList={this.state.tasks} deleteTaskFunc={this.deleteTask} />

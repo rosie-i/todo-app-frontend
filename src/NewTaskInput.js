@@ -2,8 +2,8 @@ import React from 'react';
 
 class NewTaskInput extends React.Component {
 
-    addClicked = () => {
-        alert("You clicked add!")
+    addTask = () => {
+        this.props.addTaskFunc("Finish React app", "30/01/2020")
     }
 
     render() {
@@ -14,7 +14,7 @@ class NewTaskInput extends React.Component {
                 </div>
                 <div className="col-6 text-left">
                     <input type="date" />
-                    <button type="button" onClick={this.addClicked}>+</button>
+                    <button type="button" onClick={this.addTask}>+</button>
                 </div>
             </div>
         );

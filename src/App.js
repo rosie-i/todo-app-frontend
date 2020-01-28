@@ -10,15 +10,16 @@ import OutstandingTaskList from './OutstandingTaskList';
 import CompletedTaskTitle from './CompletedTaskTitle';
 import CompletedTaskCount from './CompletedTaskCount';
 import CompletedTaskList from './CompletedTaskList';
+import uuidv1 from 'uuid/v1';
 
 
 class App extends React.Component {
 
   state = {
     tasks: [
-      { id: 1, description: "Buy milk", due: "20/01/2020", completed: false},
-      { id: 2, description: "Hang out laundry", due: "21/01/2020", completed: false},
-      { id: 3, description: "Get a corgi", due: "22/01/2020", completed: false}
+      { id: uuidv1(), description: "Buy milk", due: "20/01/2020", completed: false},
+      { id: uuidv1(), description: "Hang out laundry", due: "21/01/2020", completed: false},
+      { id: uuidv1(), description: "Get a corgi", due: "22/01/2020", completed: false}
     ]      
   }
   
@@ -41,7 +42,7 @@ class App extends React.Component {
     // Task will be added when this function executes
 
       // 1. Define the task that is being added
-      const taskToAdd = { id: "?", description: newTaskDescription, due: newTaskDueDate, completed: false }
+      const taskToAdd = { id: uuidv1(), description: newTaskDescription, due: newTaskDueDate, completed: false }
     
       // 2. Get current array of tasks from state
       let tasksToDo = this.state.tasks;
@@ -58,7 +59,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <body>
+      <div>
         <Header />
         <div className="container">
               <NewTaskInput addTaskFunc={this.addTask} />
@@ -69,7 +70,7 @@ class App extends React.Component {
               <CompletedTaskCount />
               <CompletedTaskList />
         </div>
-      </body>  
+      </div>  
     );
   }
 }

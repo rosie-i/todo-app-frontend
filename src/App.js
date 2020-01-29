@@ -61,16 +61,18 @@ class App extends React.Component {
     // 1. Find task to update (from list of tasks in state)
     let tasks = this.state.tasks;
 
-    
+
     for (let i = 0; i < tasks.length; i++) {
       if (tasks[i].id === taskID) {
+        // 2. Update the completed property from false to true
         tasks[i].completed = true;
-        console.log(tasks[i]);
         break;
       }
     }
-    // 2. Update the completed property from false to true
     // 3. Update state
+    this.setState({
+      tasks: tasks
+    })
   }
 
 

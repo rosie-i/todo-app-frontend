@@ -57,7 +57,20 @@ class App extends React.Component {
   }
 
   doneClicked = (taskID) => {
+    // When this executes, task will change to completed: true and be deleted from outstanding task list
+    // 1. Find task to update (from list of tasks in state)
+    let tasks = this.state.tasks;
+
     
+    for (let i = 0; i < tasks.length; i++) {
+      if (tasks[i].id === taskID) {
+        tasks[i].completed = true;
+        console.log(tasks[i]);
+        break;
+      }
+    }
+    // 2. Update the completed property from false to true
+    // 3. Update state
   }
 
 

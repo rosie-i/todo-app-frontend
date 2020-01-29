@@ -7,7 +7,7 @@ class OutstandingTask extends React.Component {
     }
 
     doneClicked = () => {
-        alert('You clicked done');
+        this.props.doneClickedFunc(this.props.item.id)
     }
     
     render() {

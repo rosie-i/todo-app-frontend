@@ -17,43 +17,47 @@ class App extends React.Component {
 
   state = {
     tasks: [
-      { id: uuidv1(), description: "Buy milk", due: "20/01/2020", completed: false},
-      { id: uuidv1(), description: "Hang out laundry", due: "21/01/2020", completed: false},
-      { id: uuidv1(), description: "Get a corgi", due: "22/01/2020", completed: false}
-    ]      
+      { id: uuidv1(), description: "Buy milk", due: "20/01/2020", completed: false },
+      { id: uuidv1(), description: "Hang out laundry", due: "21/01/2020", completed: false },
+      { id: uuidv1(), description: "Get a corgi", due: "22/01/2020", completed: false }
+    ]
   }
-  
+
   // filter function could be useful to render a new array based on completed: true or completed: false
 
 
   deleteTask = (taskID) => {
     // Tasks will be deleted when this function executes
-        // 1. Get list of tasks from state
-        let tasks = this.state.tasks;
-        // 2. Identify task that matches the given taskID and remove it
-        let updatedTasks = tasks.filter(item => item.id !== taskID);
-        // 3. Update state to reflect deletion with new collection of tasks (i.e. without the one we just deleted)
-        this.setState({
-          tasks: updatedTasks
-        });
+    // 1. Get list of tasks from state
+    let tasks = this.state.tasks;
+    // 2. Identify task that matches the given taskID and remove it
+    let updatedTasks = tasks.filter(item => item.id !== taskID);
+    // 3. Update state to reflect deletion with new collection of tasks (i.e. without the one we just deleted)
+    this.setState({
+      tasks: updatedTasks
+    });
   }
 
   addTask = (newTaskDescription, newTaskDueDate) => {
     // Task will be added when this function executes
 
-      // 1. Define the task that is being added
-      const taskToAdd = { id: uuidv1(), description: newTaskDescription, due: newTaskDueDate, completed: false }
+    // 1. Define the task that is being added
+    const taskToAdd = { id: uuidv1(), description: newTaskDescription, due: newTaskDueDate, completed: false }
+
+    // 2. Get current array of tasks from state
+    let tasksToDo = this.state.tasks;
+
+    // 3. Add new task object (taskToAdd) to the array
+    tasksToDo.push(taskToAdd);
+
+    // 4. Update state to reference new array with added task
+    this.setState({
+      tasks: tasksToDo
+    });
+  }
+
+  doneClicked = (taskID) => {
     
-      // 2. Get current array of tasks from state
-      let tasksToDo = this.state.tasks;
-
-      // 3. Add new task object (taskToAdd) to the array
-      tasksToDo.push(taskToAdd);
-
-      // 4. Update state to reference new array with added task
-      this.setState({
-        tasks: tasksToDo
-      });
   }
 
 
@@ -62,15 +66,19 @@ class App extends React.Component {
       <div>
         <Header />
         <div className="container">
-              <NewTaskInput addTaskFunc={this.addTask} />
-              <OutstandingTaskTitle />
-              <OutstandingTaskCount outstandingTaskCount={this.state.tasks.length} />
-              <OutstandingTaskList taskList={this.state.tasks} deleteTaskFunc={this.deleteTask} />
-              <CompletedTaskTitle />
-              <CompletedTaskCount />
-              <CompletedTaskList />
+          <NewTaskInput addTaskFunc={this.addTask} />
+          <OutstandingTaskTitle />
+          <OutstandingTaskCount outstandingTaskCount={this.state.tasks.length} />
+          <OutstandingTaskList
+            taskList={this.state.tasks}
+            deleteTaskFunc={this.deleteTask}
+            doneClickedFunc={this.doneClicked}
+          />
+          <CompletedTaskTitle />
+          <CompletedTaskCount />
+          <CompletedTaskList />
         </div>
-      </div>  
+      </div>
     );
   }
 }

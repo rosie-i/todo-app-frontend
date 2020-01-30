@@ -81,6 +81,10 @@ h2 {
   margin-top: 1.4em;
 }
 
+.completedTaskRendering {
+  text-decoration: line-through;
+}
+
 .gridContainerCompleted {
   background-color: #90cdc2;
 }

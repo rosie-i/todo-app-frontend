@@ -5,10 +5,11 @@ class CompletedTask extends React.Component {
         return (
             <div className="row gridContainerCompleted">
                 <div className="col-8 gridItemCompleted">
-                    Do laundry
+                    {this.props.item.description}
                 </div>
+                
                 <div className="col-4 gridItemCompleted">
-                    30/11/19
+                    {this.props.item.due}
                 </div>
             </div>
         );

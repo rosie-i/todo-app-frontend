@@ -64,26 +64,11 @@ h2 {
   text-align: center;
 }
 
-/* Used on week-002 repo, doesn't seem to be necessary now we've moved to React
-
-.gridItemOutstandingButtons {
-  border: 1px solid white;
-  padding: 0px;
-  text-align: center;
-}
-
-*/
-
-
-
 .completedTasks {
   text-align: center;
   margin-top: 1.4em;
 }
 
-.completedTaskRendering {
-  text-decoration: line-through;
-}
 
 .gridContainerCompleted {
   background-color: #90cdc2;

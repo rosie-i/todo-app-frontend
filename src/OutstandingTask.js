@@ -16,19 +16,18 @@ class OutstandingTask extends React.Component {
         // Conditional rendering using variables to store elements
         // If our task is marked completed: true, this will render with strikethrough text
 
-        let description;
+        // let description;
 
-        if (this.props.item.completed) {
-            description = <div className="col-12 col-md-8 gridItemOutstanding completedTaskRendering">{this.props.item.description}</div>
-        } else {
-            description = <div className="col-12 col-md-8 gridItemOutstanding">{this.props.item.description}</div>
-        }
+        // if (this.props.item.completed) {
+        //     description = <div className="col-12 col-md-8 gridItemOutstanding completedTaskRendering">{this.props.item.description}</div>
+        // } else {
+        //     description = <div className="col-12 col-md-8 gridItemOutstanding">{this.props.item.description}</div>
+        // }
 
 
         return (
             <div className="row gridContainerOutstanding">
-                {/* This renders the element as defined above using conditional rendering*/}
-                {description}
+                <div className="col-12 col-md-8 gridItemOutstanding">{this.props.item.description}</div>
 
                 <div className="col-6 col-md-2 gridItemOutstanding">
                     {this.props.item.due}

@@ -5,7 +5,16 @@ class CompletedTaskList extends React.Component {
     render() {
         return (
             <div>
-                <CompletedTask />
+                {
+                    this.props.completedTaskList.map(
+                        (taskItem) => <CompletedTask
+                            key={taskItem.id}
+                            item={taskItem}
+                            doneClickedFunc={this.props.doneClickedFunc}
+                            deleteTaskFunc={this.props.deleteTaskFunc}
+                        />
+                    )
+                }
             </div>
         );
     }

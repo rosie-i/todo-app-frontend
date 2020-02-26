@@ -6,7 +6,7 @@ class OutstandingTaskList extends React.Component {
         return (
             <div>
                 {
-                    this.props.taskList.map(
+                    this.props.outstandingTaskList.map(
                         (taskItem) => <OutstandingTask
                             key={taskItem.id}
                             item={taskItem}

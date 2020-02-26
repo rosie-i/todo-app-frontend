@@ -4,7 +4,7 @@ class NewTaskInput extends React.Component {
 
     state = {
         newTaskDescription: "No task entered",
-        newTaskDueDate: "No due date entered"
+        newTaskDueDate: "Whenever..."
     }
 
     addTask = () => {
@@ -33,7 +33,7 @@ class NewTaskInput extends React.Component {
                 <div className="col-6 text-right">
                     <input type="text" name="taskname" placeholder="Enter task here..." onChange={this.taskDescriptionChanged} />
                 </div>
-                <div className="col-6 text-left">
+                <div className="text-left">
                     <input type="date" onChange={this.taskDateChanged} />
                     <button type="button" onClick={this.addTask}>+</button>
                 </div>

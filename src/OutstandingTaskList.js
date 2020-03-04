@@ -8,7 +8,7 @@ class OutstandingTaskList extends React.Component {
                 {
                     this.props.outstandingTaskList.map(
                         (taskItem) => <OutstandingTask
-                            key={taskItem.id}
+                            key={taskItem.taskID}
                             item={taskItem}
                             doneClickedFunc={this.props.doneClickedFunc}
                             deleteTaskFunc={this.props.deleteTaskFunc}

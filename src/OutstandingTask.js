@@ -3,11 +3,11 @@ import React from 'react';
 class OutstandingTask extends React.Component {
 
     deleteClicked = () => {
-        this.props.deleteTaskFunc(this.props.item.id)
+        this.props.deleteTaskFunc(this.props.item.taskID)
     }
 
     doneClicked = () => {
-        this.props.doneClickedFunc(this.props.item.id)
+        this.props.doneClickedFunc(this.props.item.taskID)
     }
 
     render() {

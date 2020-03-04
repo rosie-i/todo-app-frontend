@@ -9,21 +9,40 @@ import CompletedTaskTitle from './CompletedTaskTitle';
 import CompletedTaskCount from './CompletedTaskCount';
 import CompletedTaskList from './CompletedTaskList';
 import uuidv1 from 'uuid/v1';
+import axios from 'axios';
 
 
 class App extends React.Component {
 
   state = {
     outstandingTasks: [
-      { id: uuidv1(), description: "Buy milk", due: "2020-02-28", completed: false },
-      { id: uuidv1(), description: "Hang out laundry", due: "2020-02-26", completed: false },
-      { id: uuidv1(), description: "Get a corgi", due: "2021-05-28", completed: false }
     ],
     completedTasks: [
-      { id: uuidv1(), description: "Buy newspaper", due: "2020-02-25", completed: true },
     ]
   }
 
+  
+  componentDidMount = () => {
+    // Fetch tasks from API
+    axios.get('https://w8wvzvhojl.execute-api.eu-west-2.amazonaws.com/dev/tasks')
+    .then((response) => {
+      const outstandingTasksFromResponse = response.data.tasks.filter(function(e){
+        return e.completed == true
+      });
+      const completedTasksFromResponse = response.data.tasks.filter(function(e){
+        return e.completed == false
+      });
+      // handle success
+      this.setState({
+        outstandingTasks: outstandingTasksFromResponse,
+        completedTasks: completedTasksFromResponse
+      })
+    })
+    .catch((error) => {
+      // handle error 
+      console.error(error);
+    });
+  }
 
 
   deleteTask = (taskID) => {
@@ -31,7 +50,7 @@ class App extends React.Component {
     // 1. Get list of tasks from state
     let tasks = this.state.outstandingTasks;
     // 2. Identify task that matches the given taskID and remove it
-    let updatedTasks = tasks.filter(item => item.id !== taskID);
+    let updatedTasks = tasks.filter(item => item.taskID !== taskID);
     // 3. Update state to reflect deletion with new collection of tasks (i.e. without the one we just deleted)
     this.setState({
       outstandingTasks: updatedTasks
@@ -42,7 +61,7 @@ class App extends React.Component {
     // Task will be added when this function executes
 
     // 1. Define the task that is being added
-    const taskToAdd = { id: uuidv1(), description: newTaskDescription, due: newTaskDueDate, completed: false }
+    const taskToAdd = { taskID: uuidv1(), description: newTaskDescription, due: newTaskDueDate, completed: false }
 
     // 2. Get current array of tasks from state
     let tasksToDo = this.state.outstandingTasks;
@@ -63,7 +82,7 @@ class App extends React.Component {
     let tasks = this.state.outstandingTasks;
 
     for (let i = 0; i < tasks.length; i++) {
-      if (tasks[i].id === taskID) {
+      if (tasks[i].taskID === taskID) {
         // 2. Update the completed property from false to true
         tasks[i].completed = true;
         break;
@@ -81,7 +100,7 @@ class App extends React.Component {
     let completedTask;
     for (let i = 0; i < outstandingTaskList.length; i++) {
       // Identify item marked as complete
-      if (outstandingTaskList[i].id === taskID) {
+      if (outstandingTaskList[i].taskID === taskID) {
         // Remove item from array of outstanding tasks
         completedTask = outstandingTaskList[i];
         outstandingTaskList.splice(i, 1);

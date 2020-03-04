@@ -50,10 +50,10 @@ class App extends React.Component {
     // Get list of tasks from state
     let tasks = this.state.outstandingTasks;
 
-    // Issue post request using axios and pass in the JSON object taskToAdd
+    // Issue delete request using axios and use template literal for taskID endpoint
     axios.delete(`https://w8wvzvhojl.execute-api.eu-west-2.amazonaws.com/dev/tasks/${taskID}`)
       .then((response) => {
-        
+
         // Identify task that matches the given taskID and remove it
         let updatedTasks = tasks.filter(item => item.taskID !== taskID);
 
@@ -99,44 +99,53 @@ class App extends React.Component {
   doneClicked = (taskID) => {
     // When this executes, task will change to completed: true and therefore move from outstanding task list to completed
 
-    // 1. Find task to update (from list of tasks in state)
-    let tasks = this.state.outstandingTasks;
+    // Issue put request using axios
+    axios.put(`https://w8wvzvhojl.execute-api.eu-west-2.amazonaws.com/dev/tasks/${taskID}`)
+      .then((response) => {
+        // 1. Find task to update (from list of tasks in state)
+        let tasks = this.state.outstandingTasks;
 
-    for (let i = 0; i < tasks.length; i++) {
-      if (tasks[i].taskID === taskID) {
-        // 2. Update the completed property from false to true
-        tasks[i].completed = true;
-        break;
-      }
-    }
+        for (let i = 0; i < tasks.length; i++) {
+          if (tasks[i].taskID === taskID) {
+            // 2. Update the completed property from false to true
+            tasks[i].completed = true;
+            break;
+          }
+        }
 
-    // 3. Update state
-    this.setState({
-      outstandingTasks: tasks
-    });
+        // 3. Update state
+        this.setState({
+          outstandingTasks: tasks
+        });
 
-    // Get the list of outstanding tasks from state
-    let outstandingTaskList = this.state.outstandingTasks;
+        // Get the list of outstanding tasks from state
+        let outstandingTaskList = this.state.outstandingTasks;
 
-    let completedTask;
-    for (let i = 0; i < outstandingTaskList.length; i++) {
-      // Identify item marked as complete
-      if (outstandingTaskList[i].taskID === taskID) {
-        // Remove item from array of outstanding tasks
-        completedTask = outstandingTaskList[i];
-        outstandingTaskList.splice(i, 1);
-        break;
-      }
-    }
-    // Push item to array of completed tasks
-    const completedTaskList = this.state.completedTasks;
-    completedTaskList.push(completedTask);
+        let completedTask;
+        for (let i = 0; i < outstandingTaskList.length; i++) {
+          // Identify item marked as complete
+          if (outstandingTaskList[i].taskID === taskID) {
+            // Remove item from array of outstanding tasks
+            completedTask = outstandingTaskList[i];
+            outstandingTaskList.splice(i, 1);
+            break;
+          }
+        }
+        // Push item to array of completed tasks
+        const completedTaskList = this.state.completedTasks;
+        completedTaskList.push(completedTask);
 
-    // Update state 
-    this.setState({
-      outstandingTasks: outstandingTaskList,
-      completedTasks: completedTaskList
-    });
+        // Update state 
+        this.setState({
+          outstandingTasks: outstandingTaskList,
+          completedTasks: completedTaskList
+        });
+
+      })
+      .catch((error) => {
+        // handle error 
+        console.error(error);
+      });
   }
 
 

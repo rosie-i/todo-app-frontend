@@ -19,8 +19,10 @@ body {
 
 
 .pageHeader {
+  background-image: url("https://images.unsplash.com/photo-1550053808-52a75a05955d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80");
   background-color: #3d3d3d;
   text-align: center;  
+
 }
 
 .pageTitle {
@@ -48,15 +50,29 @@ h2 {
   margin-bottom: 1em;
 }
 
-
 .newTaskTextbox {
   text-align: right;
 }
 
+.taskListBorder {
+  border: 5px solid white;
+  border-radius: 4px;
+  padding:  0px 14px 0px 14px;
+
+}
 
 .gridContainerOutstanding {
   background-color: #90cdc2;
 }
+
+.gridContainerOutstandingHeader {
+  background-color: #354B47;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid white;
+}
+
 
 .gridItemOutstanding {
   border: 1px solid white;
@@ -79,4 +95,16 @@ h2 {
     border: 1px solid white;
     padding: 2px 10px 2px 10px;
     text-align: center;
+}
+
+.debuggingBackgroundGreen {
+  background-color: yellowgreen;
+}
+
+.debuggingBackgroundPink {
+  background-color: magenta;
+}
+
+.debuggingBackgroundOrange {
+  background-color: coral;
 }

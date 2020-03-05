@@ -1,7 +1,8 @@
 import React from 'react';
+import moment from 'moment';
 
 class OutstandingTask extends React.Component {
-
+    
     deleteClicked = () => {
         this.props.deleteTaskFunc(this.props.item.taskID)
     }
@@ -11,12 +12,26 @@ class OutstandingTask extends React.Component {
     }
 
     render() {
+        var inputDate = this.props.item.due;
+        var outputDate = moment(inputDate).format("DD MMM YYYY");
+        console.log(outputDate);
+
+        // Conditional rendering using variables to store elements	
+        // If our outputDate is 'invalid date', this will render as 'Whenever...'	
+        let dueDate;	
+
+        if (outputDate == 'Invalid date') {
+            dueDate = 'Whenever...'	
+        } else {	
+            dueDate = outputDate	
+        }
+
         return (
             <div className="row gridContainerOutstanding">
                 <div className="col-12 col-md-8 gridItemOutstanding">{this.props.item.description}</div>
 
                 <div className="col-6 col-md-2 gridItemOutstanding">
-                    {this.props.item.due}
+                    {dueDate}
                 </div>
 
                 <div className="col-6 col-md-2 gridItemOutstanding">

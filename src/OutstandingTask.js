@@ -36,7 +36,7 @@ class OutstandingTask extends React.Component {
 
                 <div className="col-6 col-md-2 gridItemOutstanding">
                     <button type="button" className="button" onClick={this.doneClicked}>&#10004;</button>
-                    <button type="button" className="button" onClick={this.deleteClicked}><b>&#128465;</b></button>
+                    <button type="button" className="button" onClick={this.deleteClicked}>&#128465;</button>
                 </div>
             </div>
         );

@@ -15,7 +15,7 @@ class CompletedTaskList extends React.Component {
                         (taskItem) => <CompletedTask
                             key={taskItem.taskID}
                             item={taskItem}
-                            doneClickedFunc={this.props.doneClickedFunc}
+                            undoClickedFunc={this.props.undoClickedFunc}
                             deleteTaskFunc={this.props.deleteTaskFunc}
                         />
                     )

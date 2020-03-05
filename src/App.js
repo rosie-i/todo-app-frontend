@@ -131,7 +131,7 @@ class App extends React.Component {
     // Issue put request using axios
     axios.put(`https://w8wvzvhojl.execute-api.eu-west-2.amazonaws.com/dev/tasks/${taskID}`)
       .then((response) => {
-        // 1. Find task to update (from list of tasks in state)
+        // 1. Find task to update (from list of outstanding tasks in state)
         let tasks = this.state.outstandingTasks;
 
         for (let i = 0; i < tasks.length; i++) {
@@ -178,6 +178,61 @@ class App extends React.Component {
   }
 
 
+  undoClicked = (taskID) => {
+    // When this executes, task will change to completed: false and move from completed task list to outstanding
+
+    // Issue put request using axios
+    axios.put(`https://w8wvzvhojl.execute-api.eu-west-2.amazonaws.com/dev/tasks/${taskID}`)
+      .then((response) => {
+        // 1. Find task to update (from list of completed tasks in state)
+        let tasks = this.state.completedTasks;
+
+        for (let i = 0; i < tasks.length; i++) {
+          if (tasks[i].taskID === taskID) {
+            // 2. Update the completed property from true to false
+            tasks[i].completed = false;
+            break;
+          }
+        }
+
+        // 3. Update state
+        this.setState({
+          completedTasks: tasks
+        });
+
+        // Get the list of completed tasks from state
+        let completedTaskList = this.state.completedTasks;
+
+        let outstandingTask;
+        for (let i = 0; i < completedTaskList.length; i++) {
+          // Identify item marked for undo
+          if (completedTaskList[i].taskID === taskID) {
+            // Remove item from array of completed tasks
+            outstandingTask = completedTaskList[i];
+            completedTaskList.splice(i, 1);
+            break;
+          }
+        }
+        // Push item to array of outstanding tasks
+        const outstandingTaskList = this.state.outstandingTasks;
+        outstandingTaskList.push(outstandingTask);
+
+        // Update state 
+        this.setState({
+          outstandingTasks: outstandingTaskList,
+          completedTasks: completedTaskList
+        });
+
+      })
+      .catch((error) => {
+        // handle error 
+        console.error(error);
+      });
+  }
+
+
+
+
   render() {
     return (
       <div>
@@ -196,6 +251,7 @@ class App extends React.Component {
           <CompletedTaskList
             completedTaskList={this.state.completedTasks}
             deleteTaskFunc={this.deleteCompletedTask}
+            undoClickedFunc={this.undoClicked}
 
           />
         </div>

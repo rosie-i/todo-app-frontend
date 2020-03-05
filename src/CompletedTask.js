@@ -7,6 +7,10 @@ class CompletedTask extends React.Component {
         this.props.deleteTaskFunc(this.props.item.taskID)
     }
 
+    undoClicked = () => {
+        this.props.undoClickedFunc(this.props.item.taskID)
+    }
+
     render() {
         var inputDate = this.props.item.due;
         var outputDate = moment(inputDate).format("DD MMM YYYY");
@@ -34,8 +38,8 @@ class CompletedTask extends React.Component {
                 </div>
 
                 <div className="col-6 col-md-2 gridItemOutstanding">
-                    <button type="button" className="button" onClick={this.doneClicked}>&#x21B6;</button>
-                    <button type="button" className="button" onClick={this.deleteClicked}><b>&#128465;</b></button>
+                    <button type="button" className="button" onClick={this.undoClicked}>&#x21B6;</button>
+                    <button type="button" className="button" onClick={this.deleteClicked}>&#128465;</button>
                 </div>
 
             </div>

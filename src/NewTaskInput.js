@@ -35,7 +35,7 @@ class NewTaskInput extends React.Component {
                 </div>
                 <div className="text-left">
                     <input type="date" onChange={this.taskDateChanged} />
-                    <button type="button" onClick={this.addTask}>+</button>
+                    <button type="button" className="button" onClick={this.addTask}>+</button>
                 </div>
             </div>
         );

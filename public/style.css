@@ -9,6 +9,16 @@ button {
     margin: 0em 0.4em 0em 0.4em;
 }
 
+.button:hover {
+  background-color: #292929
+}
+
+
+.button:active {
+  background-color: #292929;
+  box-shadow: 0 2px #666;
+}
+
 
 body {
   background-color: #BEA1E0;
@@ -55,7 +65,7 @@ h2 {
 }
 
 .taskListBorder {
-  border: 5px solid white;
+  border: 6px solid white;
   border-radius: 4px;
   padding:  0px 14px 0px 14px;
 
@@ -63,6 +73,10 @@ h2 {
 
 .gridContainerOutstanding {
   background-color: #90cdc2;
+}
+
+.gridContainerOutstanding:hover {
+  background-color: #6da89d;
 }
 
 .gridContainerOutstandingHeader {
@@ -88,6 +102,10 @@ h2 {
 
 .gridContainerCompleted {
   background-color: #90cdc2;
+}
+
+.gridContainerCompleted:hover {
+  background-color: #6da89d;
 }
 
 

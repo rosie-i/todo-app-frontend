@@ -25,10 +25,10 @@ class App extends React.Component {
     // Fetch tasks from API
     axios.get('https://w8wvzvhojl.execute-api.eu-west-2.amazonaws.com/dev/tasks')
       .then((response) => {
-        const outstandingTasksFromResponse = response.data.tasks.filter(function (e) {
+        const outstandingTasksFromResponse = response.data.tasks.filter((e) => {
           return e.completed == false
         });
-        const completedTasksFromResponse = response.data.tasks.filter(function (e) {
+        const completedTasksFromResponse = response.data.tasks.filter((e) => {
           return e.completed == true
         });
         // handle success

@@ -68,6 +68,35 @@ class App extends React.Component {
       });
   }
 
+  deleteCompletedTask = (taskID) => {
+    // Task will be deleted when this function executes
+
+    // Get list of tasks from state
+    let tasks = this.state.completedTasks;
+
+    // Issue delete request using axios and use template literal for taskID endpoint
+    axios.delete(`https://w8wvzvhojl.execute-api.eu-west-2.amazonaws.com/dev/tasks/${taskID}`)
+      .then((response) => {
+
+        // Identify task that matches the given taskID and remove it
+        let updatedTasks = tasks.filter(item => item.taskID !== taskID);
+
+        // Update state to reflect deletion with new collection of tasks (i.e. without the one we just deleted)
+        this.setState({
+          completedTasks: updatedTasks
+        });
+      })
+      .catch((error) => {
+        // handle error 
+        console.error(error);
+      });
+  }
+
+
+
+
+
+
   addTask = (newTaskDescription, newTaskDueDate) => {
     // Task will be added when this function executes
 
@@ -166,6 +195,8 @@ class App extends React.Component {
           <CompletedTaskCount completedTaskCount={this.state.completedTasks.length} />
           <CompletedTaskList
             completedTaskList={this.state.completedTasks}
+            deleteTaskFunc={this.deleteCompletedTask}
+
           />
         </div>
       </div>

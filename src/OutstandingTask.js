@@ -4,7 +4,10 @@ import moment from 'moment';
 class OutstandingTask extends React.Component {
     
     deleteClicked = () => {
-        this.props.deleteTaskFunc(this.props.item.taskID)
+        let deleteConfirmation = window.confirm('Are you sure you want to delete the task? This action cannot be undone.');
+        if (deleteConfirmation == true) {
+            this.props.deleteTaskFunc(this.props.item.taskID)
+        }
     }
 
     doneClicked = () => {

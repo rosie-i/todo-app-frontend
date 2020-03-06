@@ -51,7 +51,7 @@ todo-app-frontend
 -->
 
 
-### Running the application locally
+## Running the application locally
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -59,7 +59,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Clone the application and install dependencies:
 
-    `npm install`
+### `npm install`
 
 
 ## Available Scripts

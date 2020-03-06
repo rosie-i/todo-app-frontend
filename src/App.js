@@ -128,21 +128,25 @@ class App extends React.Component {
   doneClicked = (taskID) => {
     // When this executes, task will change to completed: true and therefore move from outstanding task list to completed
 
+    // Find task to update (from list of outstanding tasks in state)
+    let tasks = this.state.outstandingTasks;
+
+    for (let i = 0; i < tasks.length; i++) {
+      if (tasks[i].taskID === taskID) {
+        // Update the completed property from false to true
+        tasks[i].completed = true;
+        break;
+      }
+    }
+
+		const taskToEdit = tasks.find((task) => task.taskID === taskID);
+
+
     // Issue put request using axios
-    axios.put(`https://w8wvzvhojl.execute-api.eu-west-2.amazonaws.com/dev/tasks/${taskID}`)
+    axios.put(`https://w8wvzvhojl.execute-api.eu-west-2.amazonaws.com/dev/tasks/${taskID}`, taskToEdit)
       .then((response) => {
-        // 1. Find task to update (from list of outstanding tasks in state)
-        let tasks = this.state.outstandingTasks;
 
-        for (let i = 0; i < tasks.length; i++) {
-          if (tasks[i].taskID === taskID) {
-            // 2. Update the completed property from false to true
-            tasks[i].completed = true;
-            break;
-          }
-        }
-
-        // 3. Update state
+        // Update state
         this.setState({
           outstandingTasks: tasks
         });
@@ -181,21 +185,26 @@ class App extends React.Component {
   undoClicked = (taskID) => {
     // When this executes, task will change to completed: false and move from completed task list to outstanding
 
+    let tasks = this.state.completedTasks;
+
+    // Find task to update (from list of completed tasks in state)
+    for (let i = 0; i < tasks.length; i++) {
+      if (tasks[i].taskID === taskID) {
+        // Update the completed property from true to false
+        tasks[i].completed = false;
+        break;
+      }
+    }
+    
+
+    const taskToEdit = tasks.find((task) => task.taskID === taskID);
+
+
     // Issue put request using axios
-    axios.put(`https://w8wvzvhojl.execute-api.eu-west-2.amazonaws.com/dev/tasks/${taskID}`)
+    axios.put(`https://w8wvzvhojl.execute-api.eu-west-2.amazonaws.com/dev/tasks/${taskID}`, taskToEdit)
       .then((response) => {
-        // 1. Find task to update (from list of completed tasks in state)
-        let tasks = this.state.completedTasks;
 
-        for (let i = 0; i < tasks.length; i++) {
-          if (tasks[i].taskID === taskID) {
-            // 2. Update the completed property from true to false
-            tasks[i].completed = false;
-            break;
-          }
-        }
-
-        // 3. Update state
+        // Update state
         this.setState({
           completedTasks: tasks
         });

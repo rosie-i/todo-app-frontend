@@ -8,7 +8,10 @@ class NewTaskInput extends React.Component {
     }
 
     addTask = () => {
-        this.props.addTaskFunc(this.state.newTaskDescription, this.state.newTaskDueDate)    
+        this.props.addTaskFunc(this.state.newTaskDescription, this.state.newTaskDueDate);
+        document.getElementsByTagName('input')[0].value = ""; 
+        document.getElementsByTagName('input')[1].value = ""; 
+        
     }
 
     taskDescriptionChanged = (event) => {

@@ -14,7 +14,6 @@ class OutstandingTask extends React.Component {
     render() {
         var inputDate = this.props.item.due;
         var outputDate = moment(inputDate).format("DD MMM YYYY");
-        console.log(outputDate);
 
         // Conditional rendering using variables to store elements	
         // If our outputDate is 'invalid date', this will render as 'Whenever...'	

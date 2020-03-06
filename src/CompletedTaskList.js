@@ -13,7 +13,7 @@ class CompletedTaskList extends React.Component {
                 {
                     this.props.completedTaskList.map(
                         (taskItem) => <CompletedTask
-                            key={taskItem.taskID}
+                            // key={taskItem.taskID}
                             item={taskItem}
                             undoClickedFunc={this.props.undoClickedFunc}
                             deleteTaskFunc={this.props.deleteTaskFunc}

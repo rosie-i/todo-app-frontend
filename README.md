@@ -1,4 +1,66 @@
+# To-Do List Application - Frontend
+
+This is the frontend of my To-Do List application, built during the BBC Step Into Tech course delivered by Tech Returners. It integrates with a backend, available [here](https://github.com/rosie-i/todo-app-backend).
+
+<!-- The hosted version of the application is available here: [https://github.com/whatever-link-here](https://github.com/whatever-link-here).-->
+
+### Technology Used
+
+This project uses the following technology:
+
+- ReactJS
+- JavaScript
+- CSS (Bootstrap)
+- Axios
+- MomentJS
+
+It has been designed and built with mobile-first reponsive principles in mind.
+
+<!--(Maybe add photos here of different device sizes?)-->
+
+<!-- Could also add in component tree using this model:
+todo-app-frontend
+├── README.md
+├── node_modules
+├── package.json
+├── package-lock.json
+├── .gitignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── manifest.json
+│   └── style.css 
+└── src
+    ├── index.js
+    └── components
+        └── App.js
+            ├── ....
+            │   ├── 
+            │   ├── 
+            │   ├── 
+            │   └── 
+            │
+            ├── ....
+            ├── ....
+            │   └── ....
+            │       ├── 
+            │       └── 
+            └── ....
+                ├── 
+                └── 
+-->
+
+
+### Running the application locally
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+[Node.js](https://nodejs.org/en/) must be installed if not already.
+
+Clone the application and install dependencies:
+
+    `npm install`
+
 
 ## Available Scripts
 

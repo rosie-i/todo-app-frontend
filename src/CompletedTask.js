@@ -21,7 +21,7 @@ class CompletedTask extends React.Component {
 
         let dueDate;	
 
-        if (outputDate == 'Invalid date') {
+        if (outputDate === 'Invalid date') {
             dueDate = 'Whenever...'	
         } else {	
             dueDate = outputDate	

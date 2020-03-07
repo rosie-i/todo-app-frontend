@@ -33,13 +33,15 @@ class NewTaskInput extends React.Component {
     render() {
         return (
             <div className="row newTask">
-                <div className="col-6 text-right">
-                    <input type="text" name="taskname" placeholder="Enter task here..." onChange={this.taskDescriptionChanged} />
-                </div>
-                <div className="text-left">
-                    <input type="date" onChange={this.taskDateChanged} />
-                    <button type="button" className="button" onClick={this.addTask}>+</button>
-                </div>
+                <form className="form-inline form-styling">
+                    <div className="col-6 text-right">
+                        <input type="text" name="taskname" placeholder="Enter task here..." onChange={this.taskDescriptionChanged} />
+                    </div>
+                    <div className="text-left">
+                        <input type="date" onChange={this.taskDateChanged} />
+                        <button type="submit" className="button" onClick={this.addTask}>+</button>
+                    </div>
+                </form>
             </div>
         );
     }

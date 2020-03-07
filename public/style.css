@@ -66,6 +66,14 @@ h2 {
   text-align: right;
 }
 
+.form-styling {
+  margin: 0 auto;
+}
+
+.form-input-margin {
+  margin: 3px;
+}
+
 .taskListBorder {
   border: 6px solid white;
   border-radius: 4px;
